@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62072413507",
+    "project_id": "club-house-42060",
+    "storage_bucket": "club-house-42060.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62072413507:android:fd54a065f8eda1604463f6",
+        "android_client_info": {
+          "package_name": "com.olalekan.clubhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62072413507-kk7kcvjqsl7ev8kmo0m61joa925e47v3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0vOmQb5TqlI3Ak9tMWrG9BNhD4S3hABQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62072413507-kk7kcvjqsl7ev8kmo0m61joa925e47v3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
