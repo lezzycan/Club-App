@@ -19,7 +19,6 @@ class NameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         backgroundColor: kScaffoldBackgroundColor,
         body: SafeArea(
@@ -66,33 +65,31 @@ class NameScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 0.3.h,
                     ),
-                    const Text(''
-                        'People use their real name on ClubHouse',
-                    style: TextStyle(
-                      fontSize: 15.0,
-                        fontFamily: 'Fredoka One',
-                      color: Colors.white
+                    const Text(
+                      ''
+                      'People use their real name on ClubHouse',
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          fontFamily: 'Fredoka One',
+                          color: Colors.white),
                     ),
-                   ),
                   ],
                 ),
-                  CardButton(
-                    ontap: (){
-                      final firstName = _firstController.text;
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return  UserScreen(username: firstName);
-                          } ));
-                    },
-                  ),
+                CardButton(
+                  ontap: () {
+                    final firstName = _firstController.text;
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return UserScreen(username: firstName);
+                    }));
+                  },
+                ),
               ],
             ),
           )),
         ));
   }
 }
-
-
