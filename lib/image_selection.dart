@@ -1,9 +1,11 @@
-import 'dart:io';
 
-import 'package:clubhouse/screens/picture_screen.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart' as img;
 import 'package:provider/provider.dart';
+
+import 'country_codes.dart';
 
 class ImagePicker extends StatefulWidget {
   const ImagePicker({  Key? key}) : super(key: key);
@@ -16,21 +18,9 @@ class ImagePicker extends StatefulWidget {
 class _ImagePickerState extends State<ImagePicker> {
   
   //
-  img.PickedFile? image;
 
-  Future selectImage(img.ImageSource imageSource) async {
-    try {
-      final pickedImage = await img.ImagePicker().pickImage(source: imageSource);
-      // if (image == null) {
-      //   return;
-      // }
-      // final temporaryImage = File(image.path);
-      setState(() {
-        // this.image = temporaryImage; 
-        image = pickedImage as img.PickedFile?;
-      });
-    } catch (e) {}
-  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +54,8 @@ class _ImagePickerState extends State<ImagePicker> {
                       //alignment: Alignment.center,
 
                       onPressed: () {
-                        selectImage(img.ImageSource.camera);
+                        Provider.of<CodeProvider>(context, listen: false).selectImage(img.ImageSource.camera);
+
                       },
                       icon: const Icon(
                         Icons.camera, semanticLabel: 'Camera',
@@ -79,12 +70,12 @@ class _ImagePickerState extends State<ImagePicker> {
                       tooltip: 'Gallery',
                       color: Colors.black,
                       onPressed: () {
-                        selectImage(img.ImageSource.gallery);
+                        Provider.of<CodeProvider>(context, listen: false).selectImage(img.ImageSource.gallery);
+                        // selectImage(img.ImageSource.gallery);
                       },
                       icon: const Icon(
                         Icons.image,
                         //    size: 180,
-
                         semanticLabel: 'Gallery',
                       ),
                     )
@@ -96,4 +87,9 @@ class _ImagePickerState extends State<ImagePicker> {
         ),
     );
   }
+}
+
+class  ImageProvider extends ChangeNotifier{
+
+
 }

@@ -6,15 +6,15 @@ import 'package:clubhouse/screens/name_screen.dart';
 import 'package:clubhouse/screens/picture_screen.dart';
 import 'package:clubhouse/screens/username_screen.dart';
 import 'package:clubhouse/screens/welcome_screen.dart';
-import 'package:clubhouse/utilities/constant.dart';
+
 import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/services.dart';
+
 import 'package:provider/provider.dart';
-import 'dart:io' show Platform;
+
 
 
 void main()async{
@@ -46,7 +46,7 @@ class ClubHouseApp extends StatelessWidget {
               builder: (context , child){
               final defaultTheme = Theme.of(context);
               if (defaultTheme.platform == TargetPlatform.android){
-                return Theme(
+                return new Theme(
                     data: defaultTheme,
 
                     child: child!);

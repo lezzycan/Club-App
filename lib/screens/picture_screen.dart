@@ -1,13 +1,17 @@
 
 
-import 'package:clubhouse/button/card_button.dart';
-import 'package:clubhouse/image_selection.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
+
+import 'package:clubhouse/button/card_button.dart';
+import 'package:clubhouse/country_codes.dart';
+import 'package:clubhouse/image_selection.dart';
+
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'dart:io';
 
 import 'contact_screen.dart';
-import 'dart:io';
+
 
 
 class PictureScreen extends StatefulWidget {
@@ -57,6 +61,7 @@ class _PictureScreenState extends State<PictureScreen> {
                       radius: 70,
                       backgroundColor: Colors.white12,
                       child: InkWell(
+
                         onTap: () {
                           showModalBottomSheet(
                               context: context,
@@ -64,17 +69,20 @@ class _PictureScreenState extends State<PictureScreen> {
 
                               ),);
                         },
-                        child:  Icon(
+                        child: Provider.of<CodeProvider>(context, listen: false).image == null ?
+
+                        const Icon(
                           Icons.add_to_photos,
                           size: 60,
                           color: Colors.blue,
-                        ),
+                        ) : Image.file(File(Provider.of<CodeProvider>(context, listen: false).image!.path)),
+
                       ),
                     ),
                   ),
                    CardButton(ontap: (){
                      Navigator.push(context, MaterialPageRoute(builder: (context){
-                       return Contact();
+                       return const Contact();
                      } ));
                    }
                    ),

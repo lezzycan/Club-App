@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'dart:collection';
 
-import 'package:flutter/foundation.dart';
 
+
+
+import 'package:image_picker/image_picker.dart' as img;
+import 'package:image_picker/image_picker.dart';
 
 class CodeProvider extends ChangeNotifier{
 	 List<String> countryCodes = [
@@ -36,7 +38,25 @@ class CodeProvider extends ChangeNotifier{
 	];
 
 
+	 PickedFile? image;
 
+	 Future selectImage(img.ImageSource imageSource) async {
+		 try {
+			 final pickedImage = await img.ImagePicker().pickImage(source: imageSource);
+			 // if (image == null) {
+			 //   return;
+			 // }
+			 // final temporaryImage = File(image.path);
+			 // setState(() {
+			 // this.image = temporaryImage;
+			 image = pickedImage as img.PickedFile? ;
+			 //  });
+		 } catch (e) {
+			 print(e);
+			 notifyListeners();
+		 }
+		 notifyListeners();
+	 }
 
 }
 
