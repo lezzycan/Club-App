@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:clubhouse/button/card_button.dart';
 import 'package:clubhouse/country_codes.dart';
 import 'package:clubhouse/image_selection.dart';
@@ -11,8 +7,6 @@ import 'package:provider/provider.dart';
 import 'dart:io';
 
 import 'contact_screen.dart';
-
-
 
 class PictureScreen extends StatefulWidget {
   static const id = 'picture_screen';
@@ -24,8 +18,6 @@ class PictureScreen extends StatefulWidget {
 }
 
 class _PictureScreenState extends State<PictureScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,31 +53,33 @@ class _PictureScreenState extends State<PictureScreen> {
                       radius: 70,
                       backgroundColor: Colors.white12,
                       child: InkWell(
-
                         onTap: () {
                           showModalBottomSheet(
-                              context: context,
-                              builder: (context) => const ImagePicker(
-
-                              ),);
+                            context: context,
+                            builder: (context) => const ImagePicker(),
+                          );
                         },
-                        child: Provider.of<CodeProvider>(context, listen: false).image == null ?
-
-                        const Icon(
-                          Icons.add_to_photos,
-                          size: 60,
-                          color: Colors.blue,
-                        ) : Image.file(File(Provider.of<CodeProvider>(context, listen: false).image!.path)),
-
+                        child: Provider.of<CodeProvider>(context, listen: false)
+                                    .image ==
+                                null
+                            ? const Icon(
+                                Icons.add_to_photos,
+                                size: 60,
+                                color: Colors.blue,
+                              )
+                            : Image.file(File(Provider.of<CodeProvider>(context,
+                                    listen: false)
+                                .image!
+                                .path)),
                       ),
                     ),
                   ),
-                   CardButton(ontap: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context){
-                       return const Contact();
-                     } ));
-                   }
-                   ),
+                  CardButton(ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const Contact();
+                    }));
+                  }),
                 ],
               ),
             ),
@@ -104,4 +98,3 @@ class _PictureScreenState extends State<PictureScreen> {
     );
   }
 }
-
